@@ -1,33 +1,61 @@
 # 推荐阅读
 
-下面 8 份材料值得完整读一遍，按建议的阅读顺序排列。
+下面材料值得完整读一遍，按建议顺序排列。
 
-1. **Anthropic《Demystifying evals for AI agents》**。agent 评测的基本概念和从零开始的路线图：任务、试验、判官、轨迹，能力评测和回归评测的区别。
-   https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
-2. **Anthropic《Skill authoring best practices》**。怎么写 skill：简洁、自由度、渐进式披露、先建评测再写。
-   https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices
-3. **Anthropic skill-creator（SKILL.md、grader.md、run_loop.py）**。把上面两篇落成可以运行的流程：带不带 skill 对比、断言区分度、留出集选描述。
-   https://github.com/anthropics/skills/tree/main/skills/skill-creator
-4. **Hamel Husain《LLM Evals: Everything You Need to Know》**。错误分析、判官、评测集的问答合集，实操性最强。
-   https://hamel.dev/blog/posts/evals-faq/
-5. **OpenAI Cookbook《Self-Evolving Agents》**。一个从人工迭代到全自动迭代的完整示例，包括阈值、重试上限和版本管理。
-   https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining
-6. **GEPA 论文**。目前最有代表性的反思式提示词优化方法，讲清楚了为什么读轨迹比只看分数学得快。
-   https://arxiv.org/abs/2507.19457
-7. **ACE 论文《Agentic Context Engineering》**。把上下文当成不断演进的操作手册，提出简短偏差和上下文坍缩两个问题，对剪枝很有启发。
-   https://arxiv.org/abs/2510.04618
-8. **《A Survey of Self-Evolving Agents》**。自我进化 agent 的全景综述，适合想往研究方向深入时读。
-   https://arxiv.org/abs/2507.21046
+1. **Anthropic《Demystifying evals for AI agents》**  
+   https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents  
+   agent 评测的基本概念：任务、试验、判官、轨迹；能力评测 vs 回归评测。
+
+2. **Anthropic《Skill authoring best practices》**  
+   https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices  
+   简洁、自由度、渐进式披露、先评测再写。
+
+3. **Anthropic skill-creator**（SKILL.md、grader.md、run_loop.py）  
+   https://github.com/anthropics/skills/tree/main/skills/skill-creator  
+   带/不带 skill 对比、断言区分度、留出集选描述。
+
+4. **Hamel Husain《LLM Evals FAQ》+《Evals Skills》+《Revenge of the Data Scientist》**  
+   https://hamel.dev/blog/posts/evals-faq/  
+   https://hamel.dev/blog/posts/evals-skills/  
+   https://hamel.dev/blog/posts/revenge/  
+   错误分析、「先看数据」、eval-audit 技能包。
+
+5. **OpenAI Cookbook《Self-Evolving Agents》**  
+   https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining  
+   从人工到自动的闭环、阈值、回退。
+
+6. **GEPA 论文**  
+   https://arxiv.org/abs/2507.19457  
+   反思式提示词优化，为何读轨迹比只看分数学得快。
+
+7. **EvoSkill 论文 + 仓库**  
+   https://arxiv.org/abs/2603.02766  
+   https://github.com/sentient-agi/EvoSkill  
+   从失败发现/修改整个 skill 文件夹，留出集与迁移。
+
+8. **BudgetAPO 论文**  
+   https://arxiv.org/abs/2610.05671  
+   紧预算下如何分配评估调用；噪声自适应切片。
+
+9. **ACE 论文《Agentic Context Engineering》**  
+   https://arxiv.org/abs/2510.04618  
+   操作手册式上下文；简短偏差与上下文坍缩。
+
+10. **Skill smells 论文《From Anatomy to Smells》**  
+    https://arxiv.org/abs/2607.01456  
+    推荐写法 vs 真实 SKILL.md；26 种坏味道。
 
 ## 覆盖情况
 
-| 材料 | 背景 | 优化目标 | 评测集 | 判分 | 错误分析 | 自动优化 | 剪枝 | 高成本运行 | 回归 |
+| 材料 | 背景 | 目标 | 评测集 | 判分 | 错误分析 | 自动优化 | 剪枝 | 高成本 | 回归 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1. Anthropic 评测文章 | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ |
+| 1. Anthropic 评测 | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ |
 | 2. Skill 编写指南 | ✓ | ✓ | ✓ | | | | ✓ | | |
 | 3. skill-creator | | ✓ | ✓ | ✓ | | ✓ | | ✓ | ✓ |
-| 4. Hamel 评测问答 | | | ✓ | ✓ | ✓ | | | | |
-| 5. OpenAI 自我进化示例 | | | | ✓ | | ✓ | | | ✓ |
+| 4. Hamel 系列 | | | ✓ | ✓ | ✓ | | | | |
+| 5. OpenAI 自我进化 | | | | ✓ | | ✓ | | | ✓ |
 | 6. GEPA | | | | | ✓ | ✓ | | ✓ | |
-| 7. ACE | | | | | ✓ | ✓ | ✓ | | |
-| 8. 自我进化综述 | ✓ | | | | | ✓ | | | |
+| 7. EvoSkill | ✓ | | ✓ | | ✓ | ✓ | | | ✓ |
+| 8. BudgetAPO | | | ✓ | | | ✓ | | ✓ | |
+| 9. ACE | | | | | ✓ | ✓ | ✓ | | |
+| 10. Skill smells | ✓ | | | | | | ✓ | | ✓ |
