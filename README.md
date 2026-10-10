@@ -10,17 +10,6 @@
 
 ![Skill 迭代循环](figures/01-iteration-loop.png)
 
-```mermaid
-flowchart LR
-    A[skill v_n] --> B[在评测集上跑]
-    B --> C[判分]
-    C --> D[读失败轨迹]
-    D --> E[改规则 · 剪枝]
-    E --> F{留出集和回归集<br/>都没变差?}
-    F -- 是 --> G[发布 v_n+1]
-    F -- 否 --> E
-    G --> A
-```
 
 ## 目录
 
@@ -43,7 +32,7 @@ flowchart LR
 
 - [推荐阅读](reading.md) — 约 10 份值得通读的材料与覆盖表。
 - [参考来源](sources.md) — 约 45–50 条分层来源。
-- [figures/](figures/) — 书中插图（PNG）；可用 diagrams.net 打开同名思路自行改绘。
+- [figures/](figures/) — 书中插图（PNG）；`01-iteration-loop.drawio` 可用 diagrams.net 打开改绘。
 
 ## 一句话版本
 
